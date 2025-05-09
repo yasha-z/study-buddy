@@ -93,3 +93,5 @@ while True:
 # Release resources
 cap.release()
 cv2.destroyAllWindows()
+pygame.mixer.quit()
+# Ensure to stop the sound if it's playing  
