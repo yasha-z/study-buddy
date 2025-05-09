@@ -1,6 +1,6 @@
 # Study Guardian
 
-**Study Guardian** is a real-time drowsiness and yawn detection tool that helps students stay alert while studying. It uses your webcam and computer vision techniques to detect when you're closing your eyes for too long or yawning — and plays an alert sound to snap you back into focus!
+**Study Guardian** is a real-time drowsiness and yawn detection tool that helps students stay alert while studying. It uses your webcam and computer vision techniques to detect when you're closing your eyes for too long or yawning and plays an alert sound to snap you back into focus!
 
 ---
 
