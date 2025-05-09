@@ -2,12 +2,17 @@ import cv2
 import mediapipe as mp
 import math
 import threading
-from playsound import playsound
+import pygame
 import time
+
+# Initialize pygame mixer and load the alert sound once
+pygame.mixer.init()
+alert_sound = pygame.mixer.Sound("alert.wav")  # Ensure this file exists in the same folder
 
 # Function to play alert sound in the background
 def play_alert():
-    playsound("alert.wav")  # Ensure alert.mp3 is in the same folder as the script
+    if not pygame.mixer.get_busy():  # Avoid overlapping alerts
+        alert_sound.play()
 
 # Setup MediaPipe FaceMesh
 mp_face_mesh = mp.solutions.face_mesh
@@ -68,7 +73,7 @@ while True:
         # Sleeping detection: Eye closure for more than 2 seconds
         if ear < 0.25:
             eye_closed_time += 1
-            if eye_closed_time > 60:  # This assumes that the loop runs at ~30 FPS, so 60 frames = 2 seconds
+            if eye_closed_time > 60:  # Assuming ~30 FPS
                 cv2.putText(frame, "EYES CLOSED! WAKE UP!", (30, 100), cv2.FONT_HERSHEY_SIMPLEX,
                             1.2, (0, 0, 255), 3)
                 threading.Thread(target=play_alert).start()
@@ -85,6 +90,6 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# Release the video capture and close windows
+# Release resources
 cap.release()
 cv2.destroyAllWindows()
