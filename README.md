@@ -1,4 +1,4 @@
-# 🧠 Study Guardian
+# Study Guardian
 
 **Study Guardian** is a real-time drowsiness and yawn detection tool that helps students stay alert while studying. It uses your webcam and computer vision techniques to detect when you're closing your eyes for too long or yawning — and plays an alert sound to snap you back into focus!
 
@@ -13,7 +13,7 @@
 
 ---
 
-## 🚀 How It Works
+## How It Works
 
 - Uses **MediaPipe FaceMesh** to track key facial points.
 - Calculates **Eye Aspect Ratio (EAR)** and **Mouth Aspect Ratio (MAR)**.
@@ -21,7 +21,7 @@
 
 ---
 
-## 🛠 Requirements
+## Requirements
 
 Make sure you have **Python 3.7+** installed.
 
