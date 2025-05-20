@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Guardian</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-reader"></i> Study Guardian</h1>
+            <p>Track your Pomodoro sessions with webcam drowsiness detection</p>
+        </header>
+
+        <div class="main-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <img id="video-feed" src="{{ url_for('video_feed') }}" style="display: none;">
+                </div>
+                <div class="timer" id="timer">
+                    <i class="far fa-clock"></i>
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+                <div class="controls">
+                    <button id="startBtn" class="btn primary">
+                        <i class="fas fa-play"></i> Start Studying
+                    </button>
+                    <button id="stopBtn" class="btn danger" style="display: none;">
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                </div>
+            </div>
+
+            <div class="task-section">
+                <h2><i class="fas fa-tasks"></i> Tasks</h2>
+                <div class="task-input">
+                    <input type="text" id="taskInput" placeholder="Enter a new task">
+                    <button id="addTaskBtn" class="btn">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+                <ul id="taskList" class="task-list"></ul>
+                
+                <div class="quote-section">
+                    <div id="motivationalQuote" class="quote-text">
+                        <i class="fas fa-quote-left"></i>
+                        <span class="quote-content"></span>
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-section">
+            <div id="sessionCount">
+                <i class="fas fa-sync-alt"></i> Pomodoro Round: 1
+            </div>
+            <div id="status">
+                <i class="fas fa-info-circle"></i> Ready to start
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
